@@ -9,11 +9,11 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag oberbichler/luatex:2019
+      run: docker build . --file Dockerfile --tag oberbichler/manylinux2010_x86_64
     - name: Docker Login
       uses: azure/docker-login@v1
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Publish the Docker image
-      run: docker push oberbichler/luatex
+      run: docker push oberbichler/manylinux2010_x86_64
